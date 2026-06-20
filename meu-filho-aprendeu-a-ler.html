@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Método completo em 21 dias para alfabetizar seu filho de forma divertida e sem pressão. Acesso imediato via Web App." />
+  <title>Meu Filho Aprendeu a Ler — Método Completo em 21 Dias</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            azul:    { 50:'#eef6fb', 100:'#d7eaf5', 200:'#aed0ea', 400:'#5aa9d6', 500:'#3a90c4', 600:'#2c75a3' },
+            menta:   { 50:'#edf9f3', 100:'#d3f0e3', 400:'#4fc18f', 500:'#34a877', 600:'#288a60' },
+            amarelo: { 50:'#fff9e9', 100:'#fff0c2', 400:'#f5c84b', 500:'#eeb728' },
+          },
+          fontFamily: { sans: ['Nunito', 'system-ui', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* ── Vídeo responsivo ── */
+    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1rem; }
+    .video-wrap iframe,
+    .video-wrap .placeholder { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+    /* ── Bolhas de pensamento ── */
+    .thought-bubble {
+      position: relative;
+      border-radius: 20px;
+      padding: 24px 28px 24px 22px;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.07);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .thought-bubble:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 36px rgba(0,0,0,0.11);
+    }
+    .thought-bubble .quote-mark {
+      font-family: Georgia, serif;
+      font-size: 72px;
+      line-height: 1;
+      position: absolute;
+      top: -8px;
+      left: 16px;
+      opacity: 0.18;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ── Cards de passo ── */
+    .step-card {
+      border-radius: 24px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.07);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .step-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.11);
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+
+    /* ── FAQ card (tudo visível) ── */
+    .faq-card {
+      border-radius: 18px;
+      padding: 22px 26px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform .2s;
+    }
+    .faq-card:hover { transform: translateY(-2px); }
+    .faq-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: .85rem;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-slate-700 bg-white antialiased">
+
+<!-- ═══════════════════════════════════════════════════
+     1. HERO — AZUL MÉDIO (mais claro) COM ORBS DECORATIVOS
+════════════════════════════════════════════════════ -->
+<header style="background: linear-gradient(160deg, #1a3d6e 0%, #1e5296 55%, #2460a7 100%); position: relative; overflow: hidden;">
+
+  <!-- Orbs decorativos sutis -->
+  <div style="position:absolute; top:-120px; left:-120px; width:500px; height:500px;
+              border-radius:50%; pointer-events:none;
+              background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%);"></div>
+  <div style="position:absolute; bottom:-150px; right:-100px; width:600px; height:600px;
+              border-radius:50%; pointer-events:none;
+              background: radial-gradient(circle, rgba(100,200,255,0.09) 0%, transparent 65%);"></div>
+  <div style="position:absolute; top:50%; left:60%; width:280px; height:280px;
+              border-radius:50%; pointer-events:none; transform: translate(-50%,-50%);
+              background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);"></div>
+
+  <div class="max-w-3xl mx-auto px-5 pt-10 pb-14 text-center" style="position:relative; z-index:1;">
+
+    <span class="inline-block font-bold text-sm px-4 py-1.5 rounded-full mb-6"
+          style="background: rgba(255,255,255,.15); color: #ffffff; border: 1px solid rgba(255,255,255,.3);">
+      ⭐ Mais de 3.000 crianças já começaram a ler com este método
+    </span>
+
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-4" style="color: #ffffff;">
+      Meu Filho <span style="color: #2ecc71;">Aprendeu a Ler</span>
+    </h1>
+
+    <p class="text-lg sm:text-xl font-semibold mb-3" style="color: #ffffff;">
+      Método Completo em <strong style="color: #ffffff;">21 Dias</strong> para Alfabetizar Seu Filho
+      de Forma <strong style="color: #2ecc71;">Divertida e Sem Pressão</strong>.
+    </p>
+    <p class="text-base mb-10" style="color: rgba(255,255,255,0.85);">
+      Sem cobranças, sem choro e sem aquela briga diária para sentar e estudar.<br>
+      Apenas alguns minutos por dia, no ritmo do seu filho.
+    </p>
+
+    <p class="text-sm font-bold mb-3" style="color: #ffffff;">▶ Assista ao vídeo abaixo antes de continuar</p>
+    <div class="video-wrap shadow-2xl" style="border: 2px solid rgba(255,255,255,.08); border-radius: 18px;">
+      <div class="placeholder flex flex-col items-center justify-center"
+           style="background: linear-gradient(135deg, #162d52, #1a4a7a); border-radius: 16px;">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-lg mb-3"
+             style="background: rgba(255,255,255,.14);">▶</div>
+        <p class="font-bold" style="color: #a8d4f0;">Vídeo da apresentadora</p>
+        <p class="text-sm" style="color: #5a7fa0;">(cole aqui o embed do seu vídeo)</p>
+      </div>
+      <!--
+      <iframe src="https://player.vimeo.com/video/SEU_VIDEO" frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      -->
+    </div>
+
+    <p class="text-sm mt-6" style="color: rgba(255,255,255,0.60);">Continue lendo para entender como funciona ↓</p>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     2. PENSAMENTOS — FUNDO BRANCO, BOLHAS BONITAS
+════════════════════════════════════════════════════ -->
+<section class="py-16 bg-white">
+  <div class="max-w-2xl mx-auto px-5">
+    <p class="text-center font-bold uppercase tracking-wide text-sm mb-2" style="color: #34a877;">Você não está sozinha</p>
+    <h2 class="text-2xl sm:text-3xl font-black text-center mb-10" style="color: #2c75a3;">
+      Você já teve pensamentos assim?
+    </h2>
+
+    <div class="space-y-5">
+
+      <div class="thought-bubble" style="background: linear-gradient(135deg, #f0f8ff, #e4effa); border: 1.5px solid rgba(90,169,214,.25);">
+        <span class="quote-mark" style="color: #3a90c4;">"</span>
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-0.5">😰</span>
+          <p class="italic leading-relaxed font-semibold text-slate-700">
+            "Será que meu filho está ficando para trás dos coleguinhas que já estão lendo?"
+          </p>
+        </div>
+      </div>
+
+      <div class="thought-bubble" style="background: linear-gradient(135deg, #f0fff8, #e0f8ed); border: 1.5px solid rgba(79,193,143,.25);">
+        <span class="quote-mark" style="color: #34a877;">"</span>
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-0.5">😢</span>
+          <p class="italic leading-relaxed font-semibold text-slate-700">
+            "Toda vez que tento ensinar vira choro e briga… e eu termino me sentindo uma péssima mãe."
+          </p>
+        </div>
+      </div>
+
+      <div class="thought-bubble" style="background: linear-gradient(135deg, #fffef0, #fdf4cc); border: 1.5px solid rgba(245,200,75,.35);">
+        <span class="quote-mark" style="color: #eeb728;">"</span>
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-0.5">😨</span>
+          <p class="italic leading-relaxed font-semibold text-slate-700">
+            "E se ele crescer com vergonha de ler em voz alta na frente da turma por minha culpa?"
+          </p>
+        </div>
+      </div>
+
+      <div class="thought-bubble" style="background: linear-gradient(135deg, #f0f8ff, #e4effa); border: 1.5px solid rgba(90,169,214,.25);">
+        <span class="quote-mark" style="color: #3a90c4;">"</span>
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-0.5">😩</span>
+          <p class="italic leading-relaxed font-semibold text-slate-700">
+            "Já comprei livro, já paguei reforço, já implorei… e parece que nada faz a leitura 'destravar'."
+          </p>
+        </div>
+      </div>
+
+      <div class="thought-bubble" style="background: linear-gradient(135deg, #f0fff8, #e0f8ed); border: 1.5px solid rgba(79,193,143,.25);">
+        <span class="quote-mark" style="color: #34a877;">"</span>
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-0.5">😟</span>
+          <p class="italic leading-relaxed font-semibold text-slate-700">
+            "Tenho medo de estar deixando passar a fase certa de alfabetizar e não conseguir recuperar depois."
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="text-center mt-10 font-bold text-lg" style="color: #2c75a3;">
+      Esses pensamentos não te deixam em paz, né?
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     3. DIFICULDADES — AZUL BEM ESCURO
+════════════════════════════════════════════════════ -->
+<section class="py-16" style="background: linear-gradient(135deg, #0c1e38 0%, #112a4a 60%, #1a3a5c 100%);">
+  <div class="max-w-2xl mx-auto px-5">
+    <h2 class="text-2xl sm:text-3xl font-black text-center mb-4" style="color: #ffffff;">
+      Essas dificuldades não desaparecem sozinhas
+    </h2>
+    <p class="text-center mb-10" style="color: #92c2de;">
+      Quando a leitura demora a engrenar, o impacto vai muito além das letras — ele afeta a
+      confiança, o desempenho escolar e a relação do seu filho com o aprender.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="rounded-2xl p-6 flex gap-4 items-start"
+           style="background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);">
+        <span class="text-3xl">📉</span>
+        <div>
+          <p class="font-bold mb-1" style="color: #ffffff;">Dificuldade crescente na escola</p>
+          <p style="color: #92c2de;">Quase toda matéria depende de ler e interpretar.</p>
+        </div>
+      </div>
+      <div class="rounded-2xl p-6 flex gap-4 items-start"
+           style="background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);">
+        <span class="text-3xl">😞</span>
+        <div>
+          <p class="font-bold mb-1" style="color: #ffffff;">Baixa autoestima</p>
+          <p style="color: #92c2de;">Por não acompanhar os colegas que já leem com facilidade.</p>
+        </div>
+      </div>
+      <div class="rounded-2xl p-6 flex gap-4 items-start"
+           style="background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);">
+        <span class="text-3xl">📱</span>
+        <div>
+          <p class="font-bold mb-1" style="color: #ffffff;">Fuga para as telas</p>
+          <p style="color: #92c2de;">Porque é mais fácil que enfrentar a frustração de tentar ler.</p>
+        </div>
+      </div>
+      <div class="rounded-2xl p-6 flex gap-4 items-start"
+           style="background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);">
+        <span class="text-3xl">😣</span>
+        <div>
+          <p class="font-bold mb-1" style="color: #ffffff;">Brigas e estresse diários</p>
+          <p style="color: #92c2de;">Na hora da lição, desgastando a relação entre vocês.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center font-bold mt-10 text-xl" style="color: #4fc18f;">
+      Mas existe uma saída — e ela é mais simples do que você imagina.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     4. APRESENTAÇÃO DO PRODUTO
+════════════════════════════════════════════════════ -->
+<section class="py-14 bg-white">
+  <div class="max-w-2xl mx-auto px-5 text-center">
+    <p class="font-bold uppercase tracking-wide text-sm mb-2" style="color: #34a877;">A solução que você procurava</p>
+    <h2 class="text-2xl sm:text-3xl font-black mb-4" style="color: #2c75a3;">
+      Apresentamos o método "Meu Filho Aprendeu a Ler"
+    </h2>
+    <p class="text-slate-600 mb-8">
+      Um programa completo de <strong>21 dias</strong>, em formato de Web App, que conduz seu filho
+      da primeira sílaba à leitura de frases inteiras — com atividades curtas, lúdicas e
+      cientificamente organizadas, que parecem brincadeira e funcionam de verdade.
+    </p>
+
+    <div class="bg-azul-100 rounded-2xl aspect-video flex items-center justify-center text-azul-500 shadow-lg mb-8">
+      <span class="font-bold">📱 Imagem / mockup do Web App (placeholder)</span>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4 text-left">
+      <div class="flex gap-3"><span class="font-black" style="color:#34a877;">✓</span><p><strong>Trilha diária guiada</strong>, com o que fazer em cada um dos 21 dias.</p></div>
+      <div class="flex gap-3"><span class="font-black" style="color:#34a877;">✓</span><p><strong>Linguagem simples</strong> para qualquer mãe ou pai aplicar em casa.</p></div>
+      <div class="flex gap-3"><span class="font-black" style="color:#34a877;">✓</span><p><strong>Resultados visíveis</strong> já nas primeiras semanas de uso.</p></div>
+      <div class="flex gap-3"><span class="font-black" style="color:#34a877;">✓</span><p><strong>Acesso imediato</strong> pelo celular, tablet ou computador.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     5. COMO FUNCIONA — PASSOS EM CARDS LINDOS
+════════════════════════════════════════════════════ -->
+<section class="py-16" style="background: linear-gradient(160deg, #f0fff8 0%, #eef6fb 100%);">
+  <div class="max-w-3xl mx-auto px-5">
+    <p class="text-center font-bold uppercase tracking-wide text-sm mb-2" style="color: #3a90c4;">Como funciona</p>
+    <h2 class="text-2xl sm:text-3xl font-black text-center mb-3" style="color: #0d1b2e;">
+      Um caminho de 21 dias, dividido em 3 fases
+    </h2>
+    <p class="text-center text-slate-500 mb-12">
+      Cada etapa foi pensada para caber na rotina corrida e evoluir no ritmo do seu filho.
+    </p>
+
+    <div class="space-y-6">
+
+      <div class="step-card" style="background: linear-gradient(135deg, #eef6fb, #d7eaf5); border: 1.5px solid rgba(90,169,214,.2);">
+        <div class="step-num" style="background: linear-gradient(135deg, #3a90c4, #2c75a3);">01</div>
+        <div>
+          <h3 class="font-extrabold text-lg mb-1" style="color: #0f2240;">Dias 1–7 · Sons e Sílabas</h3>
+          <p class="text-slate-600">A criança reconhece sons, letras e forma as primeiras sílabas através de jogos rápidos de 5 a 10 minutos.</p>
+        </div>
+      </div>
+
+      <div class="step-card" style="background: linear-gradient(135deg, #edf9f3, #d3f0e3); border: 1.5px solid rgba(79,193,143,.25);">
+        <div class="step-num" style="background: linear-gradient(135deg, #34a877, #288a60);">02</div>
+        <div>
+          <h3 class="font-extrabold text-lg mb-1" style="color: #0f2240;">Dias 8–14 · Juntando Palavras</h3>
+          <p class="text-slate-600">As sílabas viram palavras. Seu filho começa a ler sozinho nomes, objetos e pequenas frases com confiança.</p>
+        </div>
+      </div>
+
+      <div class="step-card" style="background: linear-gradient(135deg, #fff9e9, #fff0c2); border: 1.5px solid rgba(245,200,75,.35);">
+        <div class="step-num" style="background: linear-gradient(135deg, #f5c84b, #eeb728);">03</div>
+        <div>
+          <h3 class="font-extrabold text-lg mb-1" style="color: #0f2240;">Dias 15–21 · Lendo de Verdade</h3>
+          <p class="text-slate-600">Leitura de frases e historinhas completas, fixando o aprendizado e celebrando cada conquista junto com você.</p>
+        </div>
+      </div>
+
+      <div class="step-card" style="background: linear-gradient(135deg, #f0f4ff, #dde8ff); border: 1.5px solid rgba(100,130,220,.2);">
+        <div class="step-num" style="background: linear-gradient(135deg, #5aa9d6, #3a90c4);">04</div>
+        <div>
+          <h3 class="font-extrabold text-lg mb-1" style="color: #0f2240;">Sem materiais caros</h3>
+          <p class="text-slate-600">Tudo dentro do Web App, com apoios para imprimir opcionais. Sem precisar comprar nada extra.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     6. BENEFÍCIOS REAIS
+════════════════════════════════════════════════════ -->
+<section class="py-14 bg-white">
+  <div class="max-w-2xl mx-auto px-5">
+    <p class="text-center font-bold uppercase tracking-wide text-sm mb-2" style="color: #34a877;">Benefícios reais</p>
+    <h2 class="text-2xl sm:text-3xl font-black text-center mb-3" style="color: #2c75a3;">
+      O que muda na vida do seu filho
+    </h2>
+    <p class="text-center text-slate-500 mb-9">
+      Quando a leitura "destrava", a transformação é visível — e acontece mais rápido do que você espera.
+    </p>
+    <div class="space-y-3">
+      <div class="bg-azul-50 rounded-xl p-5 flex gap-3"><span class="text-xl">📖</span><p><strong>Criança lendo sozinha</strong> placas, livros e mensagens, com orgulho no rosto.</p></div>
+      <div class="bg-menta-50 rounded-xl p-5 flex gap-3"><span class="text-xl">💛</span><p><strong>Mais autoestima e confiança</strong> para participar e se expor na sala de aula.</p></div>
+      <div class="bg-amarelo-50 rounded-xl p-5 flex gap-3"><span class="text-xl">🎓</span><p><strong>Melhor desempenho escolar</strong>, já que ler bem facilita todas as outras matérias.</p></div>
+      <div class="bg-azul-50 rounded-xl p-5 flex gap-3"><span class="text-xl">😌</span><p><strong>Menos brigas em casa</strong> e momentos de estudo que viram tempo de qualidade entre vocês.</p></div>
+      <div class="bg-menta-50 rounded-xl p-5 flex gap-3"><span class="text-xl">📵</span><p><strong>Menos dependência de telas</strong>, com atividades que prendem a atenção de verdade.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     7. PROVA SOCIAL — VÍDEO + 3 DEPOIMENTOS
+════════════════════════════════════════════════════ -->
+<section class="py-16" style="background: linear-gradient(160deg, #eef6fb 0%, #edf9f3 100%);">
+  <div class="max-w-4xl mx-auto px-5">
+    <p class="text-center font-bold uppercase tracking-wide text-sm mb-2" style="color: #3a90c4;">Prova social</p>
+    <h2 class="text-2xl sm:text-3xl font-black text-center mb-3" style="color: #0f2240;">
+      Veja o que outras mães estão vivendo
+    </h2>
+    <p class="text-center text-slate-500 mb-10">
+      Histórias reais de famílias que viram seus filhos finalmente lerem.
+    </p>
+
+    <!-- Vídeo de depoimento de uma mãe -->
+    <div class="max-w-2xl mx-auto mb-12">
+      <p class="text-center text-sm font-bold mb-3" style="color: #3a90c4;">▶ Depoimento de uma mãe em vídeo</p>
+      <div class="video-wrap shadow-xl" style="border: 2px solid rgba(58,144,196,.2);">
+        <div class="placeholder flex flex-col items-center justify-center"
+             style="background: linear-gradient(135deg, #162d52, #1a4a7a);">
+          <div class="w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-lg mb-3"
+               style="background: rgba(255,255,255,.14);">▶</div>
+          <p class="font-bold" style="color: #a8d4f0;">Depoimento de uma mãe</p>
+          <p class="text-sm" style="color: #5a7fa0;">(cole aqui o embed do vídeo)</p>
+        </div>
+        <!--
+        <iframe src="https://player.vimeo.com/video/SEU_VIDEO" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        -->
+      </div>
+    </div>
+
+    <!-- 3 depoimentos escritos -->
+    <div class="grid sm:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-2xl p-6 shadow-md">
+        <div class="text-lg mb-3" style="color: #eeb728;">★★★★★</div>
+        <p class="text-slate-600 italic mb-5">
+          "No dia 12 minha filha leu sozinha a placa do mercado e gritou de alegria. Eu chorei.
+          Em três semanas ela saiu do nada para ler frases inteiras."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-azul-100 flex items-center justify-center text-azul-500 font-bold">AP</div>
+          <div>
+            <p class="font-extrabold text-azul-600">Ana Paula S.</p>
+            <p class="text-sm text-slate-400">Mãe da Sofia, 6 anos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-md">
+        <div class="text-lg mb-3" style="color: #eeb728;">★★★★★</div>
+        <p class="text-slate-600 italic mb-5">
+          "O que mais me marcou foi não ter mais briga na hora de estudar. Vira brincadeira de
+          10 minutos e ele mesmo pede para fazer. A leitura veio quase sem eu perceber."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-menta-100 flex items-center justify-center text-menta-500 font-bold">FA</div>
+          <div>
+            <p class="font-extrabold text-azul-600">Fernanda A.</p>
+            <p class="text-sm text-slate-400">Mãe do Lucas, 7 anos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-md">
+        <div class="text-lg mb-3" style="color: #eeb728;">★★★★★</div>
+        <p class="text-slate-600 italic mb-5">
+          "Eu já tinha gastado com apostila e reforço sem resultado. Aqui, em 21 dias, a
+          professora me chamou para dizer que ele evoluiu mais que a turma toda."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-amarelo-100 flex items-center justify-center text-amarelo-500 font-bold">LS</div>
+          <div>
+            <p class="font-extrabold text-azul-600">Luiza S.</p>
+            <p class="text-sm text-slate-400">Mãe do Davi, 5 anos</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     8. FAQ — TUDO VISÍVEL, SEM CLIQUE
+════════════════════════════════════════════════════ -->
+<section class="py-14 bg-white">
+  <div class="max-w-2xl mx-auto px-5">
+    <p class="text-center font-bold uppercase tracking-wide text-sm mb-2" style="color: #34a877;">Ainda com dúvidas?</p>
+    <h2 class="text-2xl sm:text-3xl font-black text-center mb-9" style="color: #2c75a3;">
+      Respondemos as principais perguntas das mães
+    </h2>
+
+    <div class="space-y-4">
+
+      <div class="faq-card" style="background: linear-gradient(135deg, #f0f8ff, #e4effa); border: 1.5px solid rgba(90,169,214,.2);">
+        <div class="faq-q">
+          <div class="faq-icon" style="background: #3a90c4;">?</div>
+          <h3 class="font-extrabold" style="color: #1a3a5c;">"Meu filho não tem paciência para estudar…"</h3>
+        </div>
+        <p class="text-slate-600 pl-11">As atividades duram de <strong>5 a 10 minutos</strong> e são em formato de brincadeira. A criança não sente que está "estudando" — ela só se diverte e aprende no caminho.</p>
+      </div>
+
+      <div class="faq-card" style="background: linear-gradient(135deg, #f0fff8, #e0f8ed); border: 1.5px solid rgba(79,193,143,.25);">
+        <div class="faq-q">
+          <div class="faq-icon" style="background: #34a877;">?</div>
+          <h3 class="font-extrabold" style="color: #1a3a5c;">"Não tenho tempo de sobra…"</h3>
+        </div>
+        <p class="text-slate-600 pl-11">Bastam alguns minutos por dia. Dá para aplicar antes do banho, no caminho da escola ou no fim de semana. O Web App te diz exatamente o que fazer a cada dia.</p>
+      </div>
+
+      <div class="faq-card" style="background: linear-gradient(135deg, #fffef0, #fdf4cc); border: 1.5px solid rgba(245,200,75,.3);">
+        <div class="faq-q">
+          <div class="faq-icon" style="background: #eeb728;">?</div>
+          <h3 class="font-extrabold" style="color: #1a3a5c;">"Já tentei outras coisas e não funcionou…"</h3>
+        </div>
+        <p class="text-slate-600 pl-11">Diferente de tentativas soltas, aqui há um <strong>caminho claro de 21 dias</strong>, com progressão gradual. Você sempre sabe o próximo passo, sem adivinhação.</p>
+      </div>
+
+      <div class="faq-card" style="background: linear-gradient(135deg, #f0f8ff, #e4effa); border: 1.5px solid rgba(90,169,214,.2);">
+        <div class="faq-q">
+          <div class="faq-icon" style="background: #3a90c4;">?</div>
+          <h3 class="font-extrabold" style="color: #1a3a5c;">"Não sou professora, será que dou conta?"</h3>
+        </div>
+        <p class="text-slate-600 pl-11">Tudo foi escrito em <strong>linguagem simples</strong>, com passo a passo. Qualquer mãe ou pai aplica, sem nenhum conhecimento técnico.</p>
+      </div>
+
+      <div class="faq-card" style="background: linear-gradient(135deg, #f0fff8, #e0f8ed); border: 1.5px solid rgba(79,193,143,.25);">
+        <div class="faq-q">
+          <div class="faq-icon" style="background: #34a877;">?</div>
+          <h3 class="font-extrabold" style="color: #1a3a5c;">"É um PDF que vou baixar e esquecer?"</h3>
+        </div>
+        <p class="text-slate-600 pl-11">Não! É um <strong>Web App acessado por link</strong>, pensado para usar no dia a dia, direto do celular. Acesso imediato após a compra.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     9. OFERTA ESPECIAL — GRADIENTE AZUL ESCURO → CLARO
+════════════════════════════════════════════════════ -->
+<section id="oferta" class="py-16"
+     style="background: linear-gradient(135deg, #050c18 0%, #0d1b2e 35%, #153552 65%, #1e5080 100%);">
+  <div class="max-w-2xl mx-auto px-5">
+    <p class="text-center font-bold uppercase tracking-wide text-sm mb-2" style="color: #4fc18f;">Oferta especial</p>
+    <h2 class="text-2xl sm:text-3xl font-black text-center mb-8" style="color: #ffffff;">
+      Meu Filho Aprendeu a Ler
+    </h2>
+
+    <div class="rounded-3xl p-7 shadow-2xl"
+         style="background: rgba(255,255,255,.07); border: 1.5px solid rgba(255,255,255,.12);">
+
+      <h3 class="font-extrabold text-lg mb-5" style="color: #a8d4f0;">O que você recebe hoje:</h3>
+      <ul class="space-y-3 mb-8">
+        <li class="flex gap-3"><span class="font-black shrink-0" style="color:#4fc18f;">✓</span><span style="color:#c8e6f7;"><strong style="color:#fff;">Programa completo de 21 dias</strong> em Web App, da primeira sílaba à leitura de frases.</span></li>
+        <li class="flex gap-3"><span class="font-black shrink-0" style="color:#4fc18f;">✓</span><span style="color:#c8e6f7;"><strong style="color:#fff;">Trilha diária guiada</strong> dizendo exatamente o que fazer em cada dia.</span></li>
+        <li class="flex gap-3"><span class="font-black shrink-0" style="color:#4fc18f;">✓</span><span style="color:#c8e6f7;"><strong style="color:#fff;">Mais de 60 atividades lúdicas</strong> de sons, sílabas, palavras e leitura.</span></li>
+        <li class="flex gap-3"><span class="font-black shrink-0" style="color:#4fc18f;">✓</span><span style="color:#c8e6f7;"><strong style="color:#fff;">Historinhas para leitura guiada</strong> que fixam o aprendizado com diversão.</span></li>
+        <li class="flex gap-3"><span class="font-black shrink-0" style="color:#4fc18f;">✓</span><span style="color:#c8e6f7;"><strong style="color:#fff;">Apoios para imprimir</strong> (cartelas e jogos), totalmente opcionais.</span></li>
+        <li class="flex gap-3"><span class="font-black shrink-0" style="color:#4fc18f;">✓</span><span style="color:#c8e6f7;"><strong style="color:#fff;">Acesso imediato e vitalício</strong> via WhatsApp e e-mail após confirmação do pagamento.</span></li>
+        <li class="flex gap-3"><span class="font-black shrink-0" style="color:#4fc18f;">✓</span><span style="color:#c8e6f7;"><strong style="color:#fff;">Não é um PDF chato</strong> — é um Web App feito para a sua rotina diária.</span></li>
+      </ul>
+
+      <!-- Preço -->
+      <div class="text-center rounded-2xl py-7 mb-7"
+           style="background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);">
+        <p style="color: #5a7fa0;">De <span class="line-through">R$ 97,00</span></p>
+        <p class="text-sm" style="color: #7aaec8;">por apenas</p>
+        <p class="text-5xl font-black my-2" style="color: #4fc18f;">R$ 47</p>
+        <p class="text-sm" style="color: #7aaec8;">Pagamento único ou em até 12x</p>
+      </div>
+
+      <!-- Selos -->
+      <div class="flex flex-wrap justify-center gap-2 text-xs mb-7">
+        <span class="px-3 py-1.5 rounded-full font-semibold"
+              style="background: rgba(79,193,143,.15); color: #4fc18f; border: 1px solid rgba(79,193,143,.3);">📱 Acesso pelo celular</span>
+        <span class="px-3 py-1.5 rounded-full font-semibold"
+              style="background: rgba(245,200,75,.15); color: #f5c84b; border: 1px solid rgba(245,200,75,.3);">♾️ Acesso vitalício</span>
+        <span class="px-3 py-1.5 rounded-full font-semibold"
+              style="background: rgba(90,169,214,.15); color: #5aa9d6; border: 1px solid rgba(90,169,214,.3);">⚡ Web App imediato</span>
+      </div>
+
+      <!-- Botão CTA -->
+      <a href="#" class="block w-full text-white text-center font-black text-lg sm:text-xl py-5 rounded-2xl shadow-lg transition"
+         style="background: linear-gradient(135deg, #34a877, #288a60);">
+        QUERO ALFABETIZAR MEU FILHO AGORA
+      </a>
+      <p class="text-center text-xs mt-3" style="color: #4a6a80;">Compra 100% segura · Acesso imediato</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     10. GARANTIA
+════════════════════════════════════════════════════ -->
+<section class="py-14 bg-white">
+  <div class="max-w-xl mx-auto px-5 text-center">
+    <div class="text-5xl mb-4">🛡️</div>
+    <h2 class="text-2xl font-black mb-3" style="color: #2c75a3;">Garantia Incondicional de 7 Dias</h2>
+    <p class="text-slate-600">
+      Você tem <strong>7 dias para testar o método completo</strong>, sem risco algum. Se por qualquer
+      motivo não estiver satisfeita, basta enviar uma mensagem e devolvemos
+      <strong>100% do seu dinheiro</strong> — sem perguntas e sem burocracia.
+    </p>
+    <p class="font-bold mt-4" style="color: #288a60;">Compra protegida. Você não tem nada a perder.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     11. CONDIÇÃO ESPECIAL — FUNDO VERMELHO
+════════════════════════════════════════════════════ -->
+<section class="py-12" style="background: linear-gradient(135deg, #991b1b 0%, #dc2626 100%);">
+  <div class="max-w-xl mx-auto px-5 text-center">
+    <h2 class="text-xl sm:text-2xl font-black mb-3" style="color: #ffffff;">
+      ⏳ Atenção: esta condição especial pode sair do ar a qualquer momento
+    </h2>
+    <p style="color: #fecaca;">
+      O valor promocional de <strong style="color: #ffffff;">R$ 47</strong> está disponível por
+      <strong style="color: #ffffff;">tempo limitado</strong>.
+      Quando voltar ao preço normal de <strong style="color: #ffffff;">R$ 97</strong>, não haverá exceções.
+    </p>
+    <div class="flex flex-wrap justify-center gap-2 text-xs mt-6">
+      <span class="px-3 py-1.5 rounded-full font-semibold"
+            style="background: rgba(255,255,255,.15); color: #ffffff; border: 1px solid rgba(255,255,255,.3);">🔥 Promoção por tempo limitado</span>
+      <span class="px-3 py-1.5 rounded-full font-semibold"
+            style="background: rgba(255,255,255,.15); color: #ffffff; border: 1px solid rgba(255,255,255,.3);">👀 Muitas mães acessando agora</span>
+      <span class="px-3 py-1.5 rounded-full font-semibold"
+            style="background: rgba(255,255,255,.15); color: #ffffff; border: 1px solid rgba(255,255,255,.3);">💸 52% de desconto hoje</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     12. ESTA É A HORA DE AGIR — AZUL MÉDIO ESCURO
+════════════════════════════════════════════════════ -->
+<section class="py-16" style="background: linear-gradient(160deg, #0f2240 0%, #163555 50%, #1a3e66 100%);">
+  <div class="max-w-2xl mx-auto px-5 text-center">
+    <p class="font-semibold mb-2" style="color: #92c2de;">Você chegou até aqui porque quer o melhor para o seu filho.</p>
+    <h2 class="text-2xl sm:text-3xl font-black mb-3" style="color: #ffffff;">Esta é a hora de agir.</h2>
+    <p class="mb-8" style="color: #92c2de;">
+      Invista menos que um lanche para dar ao seu filho uma habilidade que ele vai carregar pela vida toda.
+    </p>
+
+    <div class="rounded-2xl aspect-video flex items-center justify-center shadow-lg mb-8 max-w-md mx-auto"
+         style="background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);">
+      <span class="font-bold" style="color: #92c2de;">📱 Mockup do Web App (placeholder)</span>
+    </div>
+
+    <p class="text-lg mb-7" style="color: #92c2de;">
+      De <span class="line-through" style="color: #4a6a80;">R$ 97</span> por apenas
+      <strong class="text-2xl" style="color: #4fc18f;">R$ 47</strong>
+    </p>
+
+    <a href="#" class="inline-block text-white font-black text-lg sm:text-xl px-8 py-5 rounded-2xl shadow-lg transition"
+       style="background: linear-gradient(135deg, #34a877, #288a60);">
+      QUERO VER MEU FILHO LENDO EM 21 DIAS
+    </a>
+    <p class="text-xs mt-4" style="color: #3d607a;">Garantia de 7 dias · Pagamento seguro · Acesso imediato</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     13. RODAPÉ — AZUL BEM ESCURO
+════════════════════════════════════════════════════ -->
+<footer class="py-12" style="background: #030810;">
+  <div class="max-w-2xl mx-auto px-5">
+    <h3 class="font-extrabold text-lg mb-2" style="color: #ffffff;">Meu Filho Aprendeu a Ler</h3>
+    <p class="text-sm mb-8 max-w-md" style="color: #3a5a70;">
+      Um método de 21 dias em formato de Web App que alfabetiza seu filho de forma divertida,
+      leve e sem pressão.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-8 text-sm">
+      <div>
+        <h4 class="font-bold mb-3" style="color: #7aaec8;">Informações</h4>
+        <ul class="space-y-2" style="color: #4a6a80;">
+          <li class="cursor-pointer hover:text-azul-400 transition" style="color: #4a6a80;">Política de Privacidade</li>
+          <li class="cursor-pointer hover:text-azul-400 transition" style="color: #4a6a80;">Termos de Uso</li>
+          <li><a href="mailto:suporte@exemplo.com" class="hover:underline transition" style="color: #5aa9d6;">Suporte</a></li>
+        </ul>
+      </div>
+      <div class="text-xs leading-relaxed" style="color: #304a5e;">
+        <p class="mb-3">
+          <strong style="color: #5a7fa0;">Privacidade:</strong> seus dados são tratados com total
+          confidencialidade, em conformidade com a LGPD (Lei nº 13.709/2018), e usados apenas para
+          a entrega do produto digital.
+        </p>
+        <p>
+          <strong style="color: #5a7fa0;">Termos:</strong> produto de uso pessoal e intransferível.
+          A garantia de 7 dias vale a partir da data da compra.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-6 text-xs" style="border-top: 1px solid #0d1e35; color: #263d50;">
+      <p class="mb-2">© 2026 Meu Filho Aprendeu a Ler. Todos os direitos reservados.</p>
+      <p>Este produto é um material educacional digital. Não substitui avaliação pedagógica, médica ou psicológica especializada.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
